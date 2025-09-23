@@ -10,3 +10,10 @@ A team building a web application might use PaaS to host their application and d
 the developers can focus on writing code and deploying it without worrying about the underlying operating system, server software, or hardware. The PaaS provider automatically handles scaling, backup, and security patches.
 Software development teams often use SaaS products for project management and collaboration. For example, using GitHub for version control and collaboration, or using Jira for issue tracking and agile project management. 
 These tools are accessed via the web and maintained by the provider, so the team doesn't have to install or run them on their own machines.
+(b)Docker:Docker is a containerization platform that packages an application and its dependencies together in a container that can run on any computing environment. Containers are isolated from each other and the host system, 
+but share the host system's kernel. Docker provides a way to create, deploy, and run applications by using containers.
+Scenario:Imagine a team developing a microservices-based application. Each microservice might have different dependencies. Using Docker, each microservice can be containerized with its own dependencies.
+This ensures that the application runs consistently across different environments.
+Containers are lightweight and start quickly, which is ideal for continuous integration and deployment pipelines. The team can use Docker to build images
+for each microservice and then use a container orchestration tool to manage deployment, scaling, and monitoring.
+(c)
