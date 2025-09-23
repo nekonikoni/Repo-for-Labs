@@ -1,0 +1,12 @@
+(a)IaaS provides virtualized computing resources over the internet. It offers fundamental compute, network, and storage resources on a pay-as-you-go basis.
+Users can rent IT infrastructure instead of buying and managing their own physical servers.
+PaaS provides a platform allowing customers to develop, run, and manage applications without the complexity of building and maintaining the infrastructure 
+typically associated with developing and launching an app.It includes infrastructure and also middleware, development tools, database management systems, and more.
+SaaS delivers software applications over the internet, on a subscription basis. The provider hosts and manages the software application and underlying infrastructure,
+and handles any maintenance, like software upgrades and security patching.
+Examples:A development team might use IaaS to quickly provision virtual machines for developing and testing applications in different environments. 
+For instance, using Amazon EC2 to create multiple VMs for a continuous integration pipeline, where each VM can be configured with specific operating systems and software dependencies.
+A team building a web application might use PaaS to host their application and database. For example, using Heroku or Google App Engine, 
+the developers can focus on writing code and deploying it without worrying about the underlying operating system, server software, or hardware. The PaaS provider automatically handles scaling, backup, and security patches.
+Software development teams often use SaaS products for project management and collaboration. For example, using GitHub for version control and collaboration, or using Jira for issue tracking and agile project management. 
+These tools are accessed via the web and maintained by the provider, so the team doesn't have to install or run them on their own machines.
