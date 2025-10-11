@@ -1,0 +1,37 @@
+1.(a) Orchestration tools like Kubernetes help manage and scale application servers by providing mechanisms to deploy, manage, and scale containers across a cluster of machines. They automate the deployment and scaling of applications by allowing you to define the desired state of your application, and then automatically managing the container lifecycle to match that state. This includes features like:
+Automated rollouts and rollbacks: You can describe the desired state, and the orchestration tool will change the actual state to the desired state at a controlled rate.
+Self-healing: The tool can restart containers that fail, replace and reschedule containers when nodes die, and kill containers that don't respond to user-defined health checks.
+Horizontal scaling: You can scale your application up or down with a simple command or automatically based on CPU usage or other metrics.
+  (b) Orchestration tools facilitate automated deployment, scaling, and management of application servers by using declarative configuration. You define the desired state in configuration files , and the orchestration tool's control plane ensures that the current state matches the desired state. For example:
+Automated Deployment: You can define a Deployment in Kubernetes, which then creates Pods and manages them. The tool ensures that the specified number of Pods are running and healthy.
+Scaling: You can manually scale the number of replicas of an application, or use autoscaling based on metrics.
+Management: The tool provides mechanisms for service discovery, load balancing, storage orchestration, and secret management.
+
+2.Pod: The smallest and simplest Kubernetes object. A Pod represents a single instance of a running process in your cluster and can contain one or more containers. Pods are ephemeral and are not meant to be created directly in production; instead, they are managed by higher-level abstractions.
+Deployment: A higher-level abstraction that manages Pods and ReplicaSets. It provides declarative updates for Pods and ReplicaSets. You describe a desired state in a Deployment, and the Deployment controller changes the actual state to the desired state at a controlled rate.
+Service: An abstraction that defines a logical set of Pods and a policy by which to access them. Services enable network access to a set of Pods. They can be exposed in different ways and provide a stable IP address and DNS name.
+
+3.A Namespace in Kubernetes is a way to divide cluster resources between multiple users. It provides a scope for names. Names of resources need to be unique within a namespace, but not across namespaces. Example: kube-system namespace for Kubernetes system components.
+
+4.The Kubelet is an agent that runs on each node in the cluster. It ensures that containers are running in a Pod. The Kubelet takes a set of PodSpecs and ensures that the containers described in those PodSpecs are running and healthy.
+To check the nodes in a Kubernetes cluster, you can use the command: kubectl get nodes
+
+5.ClusterIP: Exposes the Service on a cluster-internal IP. The Service is only reachable from within the cluster.
+NodePort: Exposes the Service on each Node's IP at a static port . A ClusterIP Service, to which the NodePort Service routes, is automatically created. You can contact the NodePort Service from outside the cluster by requesting <NodeIP>:<NodePort>.
+LoadBalancer: Exposes the Service externally using a cloud provider's load balancer. NodePort and ClusterIP Services, to which the external load balancer routes, are automatically created.
+
+6.To scale a Deployment to 5 replicas, you can use the command: kubectl scale deployment <deployment-name> --replicas=5
+
+7.To update the image of a Deployment without downtime, you can use the kubectl set image command. For example: kubectl set image deployment/<deployment-name> <container-name>=<new-image>. This will trigger a rolling update, which updates Pods one by one without taking down the entire application.
+
+8.To expose a Deployment to external traffic, you can create a Service of type LoadBalancer or NodePort. For example, to create a LoadBalancer Service: kubectl expose deployment <deployment-name> --type=LoadBalancer --port=<port> --target-port=<target-port>
+
+9.Kubernetes scheduling decides which node a Pod runs on based on several factors. The default scheduler selects a node for the Pod in two steps:
+Filtering: The scheduler finds nodes that are feasible .
+Scoring: The scheduler then ranks the feasible nodes to choose the most suitable one . The node with the highest score is selected.
+
+10.Ingress is an API object that manages external access to the services in a cluster, typically HTTP/HTTPS. Ingress can provide load balancing, SSL termination, and name-based virtual hosting. It differs from a Service in that:
+
+A Service is a low-level way to expose an application on a set of Pods, and it operates at the transport layer .
+
+Ingress operates at the application layer and can provide more advanced routing features  and is typically used to expose multiple services under the same IP address.
